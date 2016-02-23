@@ -1,0 +1,33 @@
+/* Media Queries*/
+
+/* Smartphones */
+@media only screen and (max-width: 640px) {
+  #container,
+  #closure .inside {
+    min-width: 640px;
+  }
+  #primary,
+  #secondary .region,
+  #tertiary .region {
+    margin: 0;
+  }
+  #secondary,
+  #tertiary {
+    float: none;
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+/* Less than 960 */
+@media only screen and (max-width: 960px) {
+  #container,
+  #closure .inside {
+    margin: 0 10px;
+  }
+}
+
+/* Large screens */
+@media only screen and (min-width : 1600px) {
+  /* Styles */
+}

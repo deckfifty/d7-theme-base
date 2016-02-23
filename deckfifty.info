@@ -1,0 +1,38 @@
+name = Deck Fifty Design
+description = Simple, clean and responsive starter theme.
+core = 7.x
+engine = phptemplate
+
+; Regions
+regions[page_top] = Page top
+regions[header] = Header
+regions[preface] = Preface
+regions[help] = Help
+regions[content] = Primary
+regions[secondary] = Secondary
+regions[tertiary] = Tertiary
+regions[postscript] = Postscript
+regions[navigation] = Navigation
+regions[footer] = Footer
+regions[closure] = Closure
+regions[page_bottom] = Page bottom
+
+; Features
+features[] = logo
+features[] = name
+features[] = slogan
+features[] = favicon
+features[] = main_menu
+features[] = secondary_menu
+
+; Defaults
+stylesheets[screen, projector][] = css/defaults.css
+
+; Screen
+stylesheets[screen, projector][] = css/screen.css
+
+; Mobile
+stylesheets[screen, projector][] = css/mobile.css
+
+; Print
+;stylesheets[print][] = css/print.css

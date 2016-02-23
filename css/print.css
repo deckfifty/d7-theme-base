@@ -1,0 +1,80 @@
+/* $Id: */
+
+/**
+* PRINT MEDIA STYLESHEET
+*
+* Please note that this stylesheet is DISABLED BY DEFAULT. You can
+* enable it in your theme's info file.
+*/
+
+* {
+	background: transparent;
+}
+
+/**
+* Links
+*/
+#primary a:link, 
+#primary a:visited { 
+	background: transparent; 
+	text-decoration: underline;
+	color:#333; 
+}
+
+#primary a:link[href^="http://"]:after, 
+#primary a[href^="http://"]:visited:after { 
+	content: " (" attr(href) ") "; 
+	font-weight: normal;
+}
+
+#primary a[href^="http://"] {
+	color:#000; 
+}
+
+/**
+* Hiding stuff that doesn't belong on a printed page
+*/
+.skip-to-links,
+#secondary, 
+#tertiary, 
+#header .block,
+#primary .tabs,
+#footer .block,
+#breadcrumb,
+#navigation,
+.messages,
+.region-help,
+#comment-form {
+	display: none;
+}
+
+/**
+* Header styling
+*/
+#header img {
+	display: block;
+}
+
+#header p.site-name a {
+	color: #000; 
+	font-weight: normal;
+	text-decoration: none;
+}
+
+#header p.site-slogan {
+	font-style: italic;
+	text-align: right; 
+}
+
+/**
+* Primary Region
+*/
+#primary { 
+  float: none !important;
+  margin: 0 !important;
+}
+
+blockquote {
+	font-style: italic; 
+	color: #000; 
+}
