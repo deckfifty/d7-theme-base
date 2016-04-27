@@ -1,33 +1,13 @@
 /* Media Queries*/
 
-/* Smartphones */
-@media only screen and (max-width: 640px) {
+@media only screen and (max-width: 1440px) {
+  #header .inside,
+  #preface .region,
   #container,
-  #closure .inside {
-    min-width: 640px;
-  }
-  #primary,
-  #secondary .region,
-  #tertiary .region {
-    margin: 0;
-  }
-  #secondary,
-  #tertiary {
-    float: none;
-    width: 100%;
-    margin-left: 0;
+  #postscript .region,
+  #footer .inside,
+  #closure .region {
+    width: 96%;
   }
 }
 
-/* Less than 960 */
-@media only screen and (max-width: 960px) {
-  #container,
-  #closure .inside {
-    margin: 0 10px;
-  }
-}
-
-/* Large screens */
-@media only screen and (min-width : 1600px) {
-  /* Styles */
-}

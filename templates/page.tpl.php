@@ -53,59 +53,113 @@
 
 <div id="page">
 
-  <div id="container" class="clearfix">
+  <header id="header" class="clearfix">
+    <div class="inside">
 
-    <header id="header" class="clearfix">
-      <div class="inside">
-
-        <?php if ($logo): ?>
-        <?php if ($is_front): ?>
+      <?php if ($logo): ?>
+      <?php if ($is_front): ?>
+        <img src="<?php print $logo; ?>" alt="<?php print $site_name . ' ' . t('Home'); ?>" id="logo" />
+        <?php else: ?>
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
           <img src="<?php print $logo; ?>" alt="<?php print $site_name . ' ' . t('Home'); ?>" id="logo" />
-          <?php else: ?>
-          <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
-            <img src="<?php print $logo; ?>" alt="<?php print $site_name . ' ' . t('Home'); ?>" id="logo" />
-          </a>
-          <?php endif; ?>
+        </a>
         <?php endif; ?>
+      <?php endif; ?>
 
-        <?php if ($site_name): ?>
-        <p class="site-name">
-          <?php if ($is_front): ?>
+      <?php if ($site_name): ?>
+      <p class="site-name">
+        <?php if ($is_front): ?>
+        <?php print $site_name; ?>
+        <?php else: ?>
+        <a href="<?php print $front_page; ?>" title="<?php print $site_name . ' ' . t('Home'); ?>" rel="home">
           <?php print $site_name; ?>
-          <?php else: ?>
-          <a href="<?php print $front_page; ?>" title="<?php print $site_name . ' ' . t('Home'); ?>" rel="home">
-            <?php print $site_name; ?>
-          </a>
-          <?php endif; ?>
-        </p>
+        </a>
+        <?php endif; ?>
+      </p>
+      <?php endif; ?>
+
+      <?php if ($site_slogan): ?>
+      <p class="site-slogan"><?php print $site_slogan; ?></p>
+      <?php endif; ?>
+
+      <?php print render($page['header']); ?>
+
+      <button id="nav-toggle"><span>toggle menu</span></button>
+      <?php if ($page['navigation'] OR $main_menu OR $secondary_menu): ?>
+      <div id="navigation">
+        <a id="nav"></a>
+
+        <?php if ($main_menu): ?>
+        <nav id="main-menu" class="navigation">
+          <?php print theme('links__system_main_menu', array(
+          'links' => $main_menu,
+          'attributes' => array(
+            'id' => 'main-menu-links',
+            'class' => array('links', 'inline', 'clearfix'),
+          ),
+          'heading' => array(
+            'text' => t('Main menu'),
+            'level' => 'div',
+            'class' => array('element-invisible'),
+          ),
+        )); ?>
+        </nav> <!-- ID main-menu -->
         <?php endif; ?>
 
-        <?php if ($site_slogan): ?>
-        <p class="site-slogan"><?php print $site_slogan; ?></p>
+        <?php if ($secondary_menu): ?>
+        <nav id="secondary-menu" class="navigation">
+          <?php print theme('links__system_secondary_menu', array(
+          'links' => $secondary_menu,
+          'attributes' => array(
+            'id' => 'secondary-menu-links',
+            'class' => array('links', 'inline', 'clearfix'),
+          ),
+          'heading' => array(
+            'text' => t('Secondary menu'),
+            'level' => 'div',
+            'class' => array('element-invisible'),
+          ),
+        )); ?>
+        </nav> <!-- ID secondary-menu -->
         <?php endif; ?>
 
-        <?php print render($page['header']); ?>
+        <?php print render($page['navigation']); ?>
+      </div><!-- ID navigation -->
+      <?php endif; ?>
 
-      </div><!-- CLASS inside -->
-    </header>
+    </div><!-- CLASS inside -->
+  </header>
 
-    <?php if ($breadcrumb): print '<div id="breadcrumb">' . $breadcrumb . '</div>'; endif; ?>
+  <?php if ($page['preface']): ?>
+  <div id="preface">
+    <?php print render($page['preface']); ?>
+  </div><!-- ID preface -->
+  <?php endif; ?>
 
-    <?php if ($page['preface']): ?>
-    <div id="preface">
-      <?php print render($page['preface']); ?>
-    </div><!-- ID preface -->
-    <?php endif; ?>
+  <div id="container" class="clearfix">
 
     <div id="wrapper">
       <div id="primary">
         <div class="inside" class="clearfix">
+
+          <?php if ($breadcrumb): print '<div id="breadcrumb">' . $breadcrumb . '</div>'; endif; ?>
 
           <a id="content-area"></a>
 
           <?php print render($page['highlighted']); ?>
           <?php print render($page['help']); ?>
           <?php print $messages; ?>
+
+          <?php if ($tabs OR $action_links): ?>
+            <div id="tabs">
+              <?php if ($action_links): ?>
+                <ul class="action-links tabs">
+                  <?php print render($action_links); ?>
+                </ul>
+              <?php endif; ?>
+              <?php print render($tabs); ?>
+            </div>
+          <?php endif; ?>
 
           <?php print render($title_prefix); ?>
           <?php if ($title): ?>
@@ -114,18 +168,6 @@
           </h1>
           <?php endif; ?>
           <?php print render($title_suffix); ?>
-
-          <?php if ($tabs): ?>
-          <div class="tabs">
-            <?php print render($tabs); ?>
-          </div>
-          <?php endif; ?>
-
-          <?php if ($action_links): ?>
-          <ul class="action-links">
-            <?php print render($action_links); ?>
-          </ul>
-          <?php endif; ?>
 
           <?php print render($page['content']); ?>
 
@@ -147,69 +189,24 @@
     </aside><!-- ID tertiary -->
     <?php endif; ?>
 
-    <?php if ($page['postscript']): ?>
-    <div id="postscript">
-      <?php print render($page['postscript']); ?>
-    </div><!-- ID postscript -->
-    <?php endif; ?>
-
-    <?php if ($page['navigation'] OR $main_menu OR $secondary_menu): ?>
-    <div id="navigation">
-      <a id="nav"></a>
-
-      <?php if ($main_menu): ?>
-      <nav id="main-menu" class="navigation">
-        <?php print theme('links__system_main_menu', array(
-        'links' => $main_menu,
-        'attributes' => array(
-          'id' => 'main-menu-links',
-          'class' => array('links', 'inline', 'clearfix'),
-        ),
-        'heading' => array(
-          'text' => t('Main menu'),
-          'level' => 'div',
-          'class' => array('element-invisible'),
-        ),
-      )); ?>
-      </nav> <!-- ID main-menu -->
-      <?php endif; ?>
-
-      <?php if ($secondary_menu): ?>
-      <nav id="secondary-menu" class="navigation">
-        <?php print theme('links__system_secondary_menu', array(
-        'links' => $secondary_menu,
-        'attributes' => array(
-          'id' => 'secondary-menu-links',
-          'class' => array('links', 'inline', 'clearfix'),
-        ),
-        'heading' => array(
-          'text' => t('Secondary menu'),
-          'level' => 'div',
-          'class' => array('element-invisible'),
-        ),
-      )); ?>
-      </nav> <!-- ID secondary-menu -->
-      <?php endif; ?>
-
-      <?php print render($page['navigation']); ?>
-    </div><!-- ID navigation -->
-    <?php endif; ?>
-
-    <footer id="footer" class="clearfix">
-        <div class="inside">
-          <?php print render($page['footer']); ?>
-            <div class="credit"><a href="http://www.deckfifty.com" title="Web Design & Drupal Development Victoria">Web Design & Development</a> by <a href="http://www.deckfifty.com" title="Deck Fifty Design">Deck Fifty Design</a></div>
-            <div class="copyright">Copyright &copy; <?php print date('Y') . ' ' . $site_name ?>. All rights reserved.</div>
-        </div>
-    </footer><!-- ID footer -->
-
   </div><!-- ID container -->
+
+  <?php if ($page['postscript']): ?>
+  <div id="postscript">
+    <?php print render($page['postscript']); ?>
+  </div><!-- ID postscript -->
+  <?php endif; ?>
+
+  <footer id="footer" class="clearfix">
+    <div class="inside">
+      <?php print render($page['footer']); ?>
+      <div class="copyright">Copyright &copy; <?php print date('Y') . ' ' . $site_name ?>. All rights reserved.</div>
+    </div>
+  </footer><!-- ID footer -->
 
   <?php if ($page['closure']): ?>
   <div id="closure" class="clearfix">
-      <div class="inside">
-        <?php print render($page['closure']); ?>
-      </div>
+    <?php print render($page['closure']); ?>
   </div><!-- ID closure -->
   <?php endif; ?>
 

@@ -409,3 +409,260 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+
+/* ==========================================================================
+   Drupal specific
+   ========================================================================== */
+
+/* vertical tabs */
+#container .vertical-tabs {
+  padding: 0;
+  margin: 15px 0;
+  border: 5px solid #ccc;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #fff;
+  color: #333;
+  overflow: hidden;
+}
+#container .vertical-tabs .vertical-tabs-list {
+  border: 0 none;
+  left: 0;
+  margin: 0;
+}
+#container .vertical-tabs .vertical-tabs-panes fieldset {
+  border: 0 none;
+}
+
+/* tabs */
+#primary #tabs {
+  float: right;
+  margin: 0;
+  font-weight: 400;
+  position: relative;
+  z-index: 99;
+}
+#primary #tabs .tabs {
+  margin: 0;
+  padding: 0;
+  float: left;
+  border: 0 none;
+}
+#primary #tabs .tabs li {
+  margin: 0 0 5px 5px;
+  padding: 0;
+  list-style-type: none;
+  list-style-image: none;
+  border: 0 none;
+  float: left;
+}
+#primary #tabs .tabs li a {
+  color: #eee;
+  border: 0 none;
+  background: #333;
+  padding: 6px 13px;
+  line-height: normal;
+  margin: 0;
+  display: block;
+  border-radius: 3px;
+}
+#primary #tabs .tabs li a:hover {
+  text-decoration: none;
+  background: #222;
+}
+#primary #tabs .tabs li a.active {
+  background: #222;
+}
+#primary #tabs .action-links li a {
+  background: #ee293d;
+  color: #fff;
+}
+#primary #tabs .secondary li a {
+  background: #ccc;
+  color: #333;
+}
+#primary #tabs .secondary li a.active {
+  background: #aaa;
+}
+
+/* tables */
+#container table {
+  border: 0 none;
+  background: #f2f2f2;
+  width: 100%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+#container table thead,
+#container table thead th {
+  background: #ee293d;
+  color: #eee;
+}
+#container table thead a {
+  color: #eee;
+}
+#container table tbody {
+  border-top: 0 none;
+}
+#container table tr {
+  background: transparent;
+  border: 0 none;
+}
+#container table tr th,
+#container table tr td {
+  border: 0 none;
+  padding: 10px;
+}
+#container table tr td.active {
+  background: rgba(0,0,0,.03);
+}
+
+/*forms*/
+#page label,
+#page .field-label {
+  font-weight: 400;
+}
+#page .form-text,
+#page .form-textarea,
+#page .form-select {
+  border: 1px solid #ccc;
+  padding: 5px 8px;
+  border-radius: 3px;
+}
+#page .form-select {
+  padding: 4px 8px;
+  max-width: 200px;
+}
+#page .form-checkboxes .form-item,
+#page .form-radios .form-item {
+  display: inline-block;
+}
+#page .form-checkboxes .form-item label,
+#page .form-radios .form-item label {
+  font-weight: 300;
+}
+#page .form-submit {
+  display: inline-block;
+  padding: 0 30px;
+  margin-right: 10px;
+  line-height: 42px;
+  background: #ee293d;
+  color: #fff;
+  border: 0 none;
+  border-radius: 3px;
+  font-weight: 400;
+}
+#page .form-submit.form-button-disabled {
+  background: #ccc;
+}
+#page .form-item input.error,
+#page .form-item textarea.error,
+#page .form-item select.error {
+  border: 2px solid #ee293d;
+}
+#page .views-exposed-form .views-exposed-widget .form-submit {
+  margin-top: 1.9em;
+}
+
+/*inline date fields*/
+#page .container-inline-date .date-padding {
+  padding: 0 10px 0 0;
+}
+
+/*webforms*/
+#page .webform-client-form {}
+#page .webform-client-form label {
+  min-width: 180px;
+  display: inline-block;
+}
+#page .webform-client-form .form-textarea-wrapper {
+  max-width: 600px;
+  display: inline-block;
+  vertical-align: top;
+}
+#page .webform-component-textarea .description {
+  margin-left: 183px;
+}
+#page .webform-client-form .form-radios .form-type-radio {
+  clear: left;
+  display: block;
+}
+
+/* messages */
+#page .messages {
+  background: #e6e6e6;
+  border: 1px solid #fff;
+  padding: 15px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  -moz-box-shadow: 0px 0px 5px #ccc;
+  -webkit-box-shadow: 0px 0px 5px #ccc;
+  box-shadow: 0px 0px 5px #ccc;
+  margin: 20px 3px;
+}
+#page .messages.status {
+  background: #cae49d;
+  border: 1px solid #78a22f;
+  -moz-box-shadow: 0px 0px 3px #78a22f;
+  -webkit-box-shadow: 0px 0px 3px #78a22f;
+  box-shadow: 0px 0px 3px #78a22f;
+}
+#page .messages.warning {}
+#page .messages.error {
+  background: #E03838 none;
+  border: 0 none;
+  color: #fff;
+  -moz-box-shadow: 0px 0px 3px #ff0000;
+  -webkit-box-shadow: 0px 0px 3px #ff0000;
+  box-shadow: 0px 0px 3px #ff0000;
+}
+
+/* ckeditor */
+#container .cke_wrapper {
+  padding: 0;
+}
+#container .cke_skin_kama {
+  padding: 0;
+  border: 0 none;
+}
+#container .cke_editor {
+  border: 5px solid #ccc;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  background: #fff;
+}
+#container .cke_top,
+#container .cke_bottom {
+  background: #eee;
+}
+#container .cke_toolbar,
+#container .cke_toolbar .cke_toolbar_start,
+#container .cke_toolbar .cke_toolbar_end {
+  background: transparent none;
+}
+
+/* simplemenu */
+.simplemenu-block {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* admin menu */
+#admin-menu {
+  z-index: 10000;
+  background: transparent;
+}
+#admin-menu #admin-menu-wrapper {
+  background: #222;
+  visibility: hidden;
+}
+#admin-menu:hover #admin-menu-wrapper {
+  visibility: visible;
+}

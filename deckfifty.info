@@ -1,5 +1,5 @@
 name = Deck Fifty Design
-description = Simple, clean and responsive starter theme.
+description = Simple, clean and responsive Drupal 7 starter theme.
 core = 7.x
 engine = phptemplate
 
@@ -36,3 +36,6 @@ stylesheets[screen, projector][] = css/mobile.css
 
 ; Print
 ;stylesheets[print][] = css/print.css
+
+; Scripts
+;scripts[] = js/script.js
